@@ -7,50 +7,58 @@
     </head>
 
     <body>
-        <div>
-            <label>Square this number:
-                <input type="number" id="square-input">
-            </label>
-            <button id="square-button">Calculate</button>
-        </div>
+        <section id="question">
+            <div>
+                <label>Square this number:
+                    <input type="number" id="square-input">
+                </label>
+                <button id="square-button">Calculate</button>
+            </div>
 
-        <div>
-            <label>Half this number:
-                <input type="number" id="half-input">
-            </label>
-            <button id="half-button">Calculate</button>
-        </div>
+            <div>
+                <label>Halve this number:
+                    <input type="number" id="half-input">
+                </label>
+                <button id="half-button">Calculate</button>
+            </div>
 
-        <div>
-            <label>Fraction:
-                <input type="number" id="fraction-input">
-            </label>
-            <label>Whole:
-                <input type="number" id="whole-input">
-            </label>
-            <button id="percent-button">Calculate</button>
-        </div>
+            <div>
+                <label>Fraction:
+                    <input type="number" id="fraction-input">
+                </label>
+                <label>Whole:
+                    <input type="number" id="whole-input">
+                </label>
+                <button id="percent-button">Calculate</button>
+                <span class="annotation">(Calculate `Fraction` percentage of a number `Whole`)</span>
+            </div>
 
-        <div>
-            <label>Integer:
-                <input type="number" id="int-input">
-            </label>
-            <button id="int-button">Calculate</button>
-        </div>
+            <div>
+                <label>Integer:
+                    <input type="number" id="int-input">
+                </label>
+                <button id="int-button">Calculate</button>
+                <span class="annotation">(Rounding a number to integer)</span>
+            </div>
 
-        <div>
-            <label>Calculate area of circle with radius:
-                <input type="number" id="radius-input">
-            </label>
-            <button id="radius-button">Calculate</button>
-        </div>
+            <div>
+                <label>Calculate area of circle with radius:
+                    <input type="number" id="radius-input">
+                </label>
+                <button id="radius-button">Calculate</button>
+            </div>
+        </section>
 
-        <div id="solution"></div>
+        <section id="answer">
+            <span class="title">solution</span>
+            <div id="solution"></div>
+        </section>
         <script>
             /* Square a number */
             function squareNumber(num) {
-                var squaredNumber = num * num;
-                document.getElementById("solution").innerHTML = 'The result of squaring the number ' + num + ' is ' + squaredNumber;
+                var result = num * num;
+                var text = `The result of squaring ${num} is ${result}.`;
+                document.getElementById("solution").innerText = text;
             }
             var squareButton = document.getElementById("square-button");
             squareButton.addEventListener("click", function() {
@@ -60,8 +68,9 @@
 
             /* Halve a number */
             function halfNumber(num) {
-                var squaredNumber = num / 2;
-                document.getElementById("solution").innerHTML = 'The result of halving the number ' + num + ' is ' + squaredNumber;
+                var result = num / 2;
+                var text = `The result of halving ${num} is ${result}.`;
+                document.getElementById("solution").innerText = text;
             }
             var squareButton = document.getElementById("half-button");
             squareButton.addEventListener("click", function() {
@@ -70,9 +79,10 @@
             });
 
             /* Calculate percentage of a whole number */
-            function fractionNumber(perc, num) {
-                var fractionNumber = perc / 100 * num;
-                document.getElementById("solution").innerHTML = 'The result of ' + perc + '% the whole number ' + num + ' is ' + fractionNumber;
+            function fractionNumber(frac, num) {
+                var result = frac / 100 * num;
+                var text = `The result of calculating ${frac}% of ${num} is ${result}.`;
+                document.getElementById("solution").innerText = text;
             }
             var fractionButton = document.getElementById("percent-button");
             fractionButton.addEventListener("click", function () {
@@ -84,7 +94,8 @@
             /* round a number to integer */
             function roundNumber(num) {
                 var result = Math.round(num);
-                document.getElementById("solution").innerHTML = 'Rounding ' + num + ' to an integer is ' + result;
+                var text = `The result of rounding ${num} to integer is ${result}.`;
+                document.getElementById("solution").innerText = text;
             }
             var intButton = document.getElementById("int-button");
             intButton.addEventListener("click", function () {
@@ -94,8 +105,9 @@
 
             /* calculate the area of a circle */
             function areaCircle(radius) {
-                var area = Math.PI * radius * radius;
-                document.getElementById("solution").innerHTML = 'The area of a circle with a radius ' + radius + ' is ' + area;
+                var result = Math.PI * radius * radius;
+                var text = `The area of circle with radius ${radius} is ${result}.`;
+                document.getElementById("solution").innerText = text;
             }
             var areaButton = document.getElementById("radius-button");
             areaButton.addEventListener("click", function () {
@@ -104,5 +116,4 @@
             });
         </script>
     </body>
-
 </html>
